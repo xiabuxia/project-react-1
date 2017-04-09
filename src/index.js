@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
+import Welcome from './welcome'
 
-ReactDOM.render(
-  <h1>Hi, world!</h1>,
-  document.getElementById('root')
-);
+
+
+ ReactDOM.render(
+   <Welcome name="frank"/>,
+    document.getElementById('root')
+  )
