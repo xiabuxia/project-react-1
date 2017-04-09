@@ -1,16 +1,18 @@
  import React from 'react';
   class Welcome extends React.Component {
    constructor(props){
-    super(props) // 表示调用父类的构造函数,如果子类中存在构造函数，则需要在使用“this”之前首先调用super（）。于是乎才有下面的this，this指向的是构造函数
-     this.state = {
-       date: new Date()
-     }
-     setInterval(()=>{ // JS 箭头函数，相当于 function(){return this.state = {date: new Date() // 更新 date } }
-      this.state = {
-        date: new Date() // 更新 date
-      }
-    })
-   } // static 关键字用来定义类的静态方法。静态方法是指那些不需要对类进行实例化，使用类名就可以直接访问的方法，
+        super(props) // 表示调用父类的构造函数,如果子类中存在构造函数，则需要在使用“this”之前首先调用super（）。于是乎才有下面的this，this指向的是构造函数
+        this.state = {
+        date: new Date()
+        };
+       setInterval(()=>{ // 搜索「JS 箭头函数 MDN」
+
+            this.setState({
+                date: new Date() // 更新 date
+
+            })
+        })
+    } // static 关键字用来定义类的静态方法。静态方法是指那些不需要对类进行实例化，使用类名就可以直接访问的方法，
    // 需要注意的是静态方法不能被实例化的对象调用。静态方法经常用来作为工具函数。部分需要实例化后才能访问到
     render() { //reder方法渲染html相关的事情
      return (
