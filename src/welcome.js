@@ -5,24 +5,28 @@
         this.state = {
         date: new Date()
         };
-       setInterval(()=>{ // 搜索「JS 箭头函数 MDN」
-
-            this.setState({
-                date: new Date() // 更新 date
-
-            })
-        })
-    } // static 关键字用来定义类的静态方法。静态方法是指那些不需要对类进行实例化，使用类名就可以直接访问的方法，
-   // 需要注意的是静态方法不能被实例化的对象调用。静态方法经常用来作为工具函数。部分需要实例化后才能访问到
-    render() { //reder方法渲染html相关的事情
-     return (
-       <div>
-         <h1>Hello, {this.props.name}</h1>
-         <h2>{this.state.date.toString()}</h2>
-       </div>
-     )
+          console.log('我已经在 constructor 里将 props 和 state 初始化好了')
     }
+
+    componentWillMount(){
+        console.log('运行到这里的话，说明马上就要运行 render 了')
+    }
+
+    render() {
+     console.log('嗯，这里是 render')
+      return (
+        <div>
+          <h1>Hello, {this.props.name}</h1>
+          <h2>{this.state.date.toString()}</h2>
+        </div>
+      )
+    }
+
+   componentDidMount(){
+     console.log('已经挂载到页面里了')
+   }
   }
+  
 export default Welcome  
 //  每一个模块都有自己单独的作用域，模块之间的相互调用关系是通过 
 // export 来规定模块对外暴露的接口
