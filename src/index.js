@@ -6,6 +6,6 @@ import './index.css';
 
 
  ReactDOM.render(
-   <App name="xiaomuing"/>,
+   <App/>,
     document.getElementById('root')
   )

@@ -1,0 +1,29 @@
+.btn {
+    display: inline-block;
+    font-size: 12px;
+    width: 40px;
+    height: 18px;
+    background: #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 18px;
+}
+.TodoItem{
+    width: 290px;
+    margin-left: 55px;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+ }
+ .TodoItem input {
+     display: inline-block;
+     vertical-align: center;
+ }
+ .TodoItem>.title{
+     word-break:break-all;
+     max-width: 218px;
+     flex-grow: 1;
+
+ }
