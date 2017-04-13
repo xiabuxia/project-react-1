@@ -14,8 +14,7 @@
       this.state = {
         newTodo: '',
         todoList: [
-          {id:1,title:'第一个代办事项'},
-          {id:2,title:'第二个代办事项'}
+      
         ]
       }
       
