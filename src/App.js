@@ -26,7 +26,7 @@
       let todos = this.state.todoList.map((item,index)=>{
         return (
             <li key={index}>
-                <TodoItem todo={item}/>
+                <TodoItem todo={item} onToggle={this.toggle.bind(this)}/>
             </li>
         ) //当JSX标签超过一行时，使用括号包裹。
       })
@@ -46,13 +46,16 @@
         </div>
       )
     }
+      toggle(e,todo){
+        todo.state = todo.status === 'completed'?'':'completed'
+        this.setState(this.state)
+      }
       changeTitle(event){
         this.setState({
           newTodo: event.target.value,
           todoList: this.state.todoList
         })
       }
-
       addTodo(event){
         this.state.todoList.push({
           id: idMaker(),
