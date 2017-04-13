@@ -23,7 +23,7 @@
  
 
     render() {
-      let todos = this.state.todoList.map((item,index)=>{
+      let todos = this.state.todoList.filter((item)=>!item.deleted).map((item,index)=>{
         return (
             <li key={index}>
                 <TodoItem todo={item} onToggle={this.toggle.bind(this)}
@@ -32,7 +32,6 @@
         ) //当JSX标签超过一行时，使用括号包裹。
       })
       
-
       return (
         <div className="App">
           <h1>我的代办事项</h1>

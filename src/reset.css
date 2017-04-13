@@ -15,3 +15,14 @@ ul,ol,dl {
 a {
     color: inherit;
 }
+.btn {
+    display: inline-block;
+    font-size: 12px;
+    width: 40px;
+    height: 15px;
+    background: #ccc;
+    margin-left: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 15px;
+}
