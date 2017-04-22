@@ -5,6 +5,7 @@
   import 'normalize.css';
   import './App.css';
   import './reset.css'
+  import * as localStore from './localStore'
 
   
 
@@ -13,9 +14,7 @@
       super(props);
       this.state = {
         newTodo: '',
-        todoList: [
-          
-        ]
+        todoList: localStore.load('todoList') || []
       }
       
     }
@@ -28,7 +27,7 @@
                 <TodoItem todo={item} onToggle={this.toggle.bind(this)} 
                     onDelete={this.delete.bind(this)}/>
             </li>
-        ) //当JSX标签超过一行时，使用括号包裹。
+        ) 
       })
       
       return (
@@ -47,22 +46,25 @@
         </div>
       )
     }
+      componentDidUpdate (){
+        localStore.save('todoList', this.state.todoList)
+      }
 
       delete(event,todo){
         todo.deleted = true
-        this.setState(this.state)
+        this.setState(this.state)  
       }
       
       toggle(e,todo){
         todo.status = todo.status === 'completed' ? '' : 'completed'
-        this.setState(this.state)
+        this.setState(this.state)  
       }
 
       changeTitle(event){
         this.setState({
           newTodo: event.target.value,
           todoList: this.state.todoList
-        })
+        })    
       }
 
       addTodo(event){
