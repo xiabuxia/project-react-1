@@ -14,7 +14,7 @@
       this.state = {
         newTodo: '',
         todoList: [
-      
+          
         ]
       }
       
@@ -35,9 +35,11 @@
         <div className="App">
           <h1>我的代办事项</h1>
           <div className="inputWrapper">
+
             <TodoInput content={this.state.newTodo} 
             onChange={this.changeTitle.bind(this)}
             onSubmit={this.addTodo.bind(this)}/>
+
           </div>
           <ol>
             {todos}
@@ -45,20 +47,24 @@
         </div>
       )
     }
+
       delete(event,todo){
         todo.deleted = true
         this.setState(this.state)
       }
+      
       toggle(e,todo){
         todo.status = todo.status === 'completed' ? '' : 'completed'
         this.setState(this.state)
       }
+
       changeTitle(event){
         this.setState({
           newTodo: event.target.value,
           todoList: this.state.todoList
         })
       }
+
       addTodo(event){
         this.state.todoList.push({
           id: idMaker(),
