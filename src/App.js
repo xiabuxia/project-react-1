@@ -7,7 +7,7 @@
   import './reset.css'
   import AV from './leanCloud'
   import UserDialog from './UserDialog'
-  import {getCurrentUser} from './leanCloud'
+  import {getCurrentUser, signOut} from './leanCloud'
 
 
 
@@ -35,7 +35,9 @@
       
       return (
         <div className="App">
-          <h1>{this.state.user.username||'我'}的代办事项</h1>
+          <h1>{this.state.user.username||'我'}的代办事项
+            {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button>:null}
+         </h1>
           <div className="inputWrapper">
 
             <TodoInput content={this.state.newTodo} 
@@ -50,6 +52,12 @@
          {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)}/>}
         </div>
       )
+    }
+    signOut(){
+      signOut()
+      let stateCopy = JSON.parse(JSON.stringify(this.state))
+      stateCopy.user = {}
+      this.setState(stateCopy)
     }
     onSignUp(user){
 
