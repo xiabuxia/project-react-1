@@ -45,7 +45,8 @@
           <ol>
             {todos}
          </ol>
-         <UserDialog onSignUp={this.onSignUp.bind(this)}/>
+         
+         {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)}/>}
         </div>
       )
     }
