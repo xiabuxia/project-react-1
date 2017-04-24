@@ -7,6 +7,7 @@
   import './reset.css'
   import AV from './leanCloud'
   import UserDialog from './UserDialog'
+  import {getCurrentUser} from './leanCloud'
 
 
 
@@ -14,7 +15,7 @@
     constructor(props){
       super(props);
       this.state = {
-        user: {},
+        user: getCurrentUser() || {},
         newTodo: '',
         todoList: []
       }
