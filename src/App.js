@@ -14,6 +14,7 @@
     constructor(props){
       super(props);
       this.state = {
+        user: {},
         newTodo: '',
         todoList: []
       }
@@ -33,7 +34,7 @@
       
       return (
         <div className="App">
-          <h1>我的代办事项</h1>
+          <h1>{this.state.user.username||'我'}的代办事项</h1>
           <div className="inputWrapper">
 
             <TodoInput content={this.state.newTodo} 
@@ -44,9 +45,13 @@
           <ol>
             {todos}
          </ol>
-         <UserDialog/>
+         <UserDialog onSignUp={this.onSignUp.bind(this)}/>
         </div>
       )
+    }
+    onSignUp(user){
+      this.state.user = user
+      this.setState(this.state)
     }
       componentDidUpdate (){
 
