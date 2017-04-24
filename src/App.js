@@ -5,7 +5,6 @@
   import 'normalize.css';
   import './App.css';
   import './reset.css'
-  import AV from './leanCloud'
   import UserDialog from './UserDialog'
   import {getCurrentUser, signOut} from './leanCloud'
 
@@ -53,7 +52,7 @@
          null : 
          <UserDialog 
             onSignUp={this.onSignUpOrSignIn.bind(this)} 
-            onSignIn={this.onSignUpOrSignIn.bind(this)}/>}/>}
+            onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
         </div>
       )
     }
